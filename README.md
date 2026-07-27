@@ -38,10 +38,10 @@ Add your GitHub repository link here.
 (Screenshot%20(187).png)
 ### Women's Rights Page
 ! [Women's Rights Page]
-(Screenshot%20(190).png)
+(Screenshot%20(191).png)
 ### Quiz Page
 ! [Quiz Page]
-(Screenshot%20(191).png)
+(Screenshot%20(190).png)
 ### AI Assistant Page
 ! [AI Assistant Page]
 (Screenshot%20(202).png)
