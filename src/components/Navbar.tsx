@@ -15,6 +15,7 @@ const navItems = [
   { id: 'women-rights', label: "Women's Rights", labelUrdu: 'خواتین حقوق' },
   { id: 'quran-hadith', label: 'Quran & Hadith', labelUrdu: 'قرآن و حدیث' },
   { id: 'myths-facts', label: 'Myths vs Facts', labelUrdu: 'خرافات و حقائق' },
+  { id: 'quiz', label: 'Quiz', labelUrdu: 'کوئز' },
   { id: 'faqs', label: 'FAQs', labelUrdu: 'سوالات' },
   { id: 'blog', label: 'Blog', labelUrdu: 'بلاگ' },
   { id: 'resources', label: 'Resources', labelUrdu: 'وسائل' },
