@@ -49,36 +49,36 @@ export default function Home({ onNavigate, onOpenChat }: HomeProps) {
               <>Human & Women's Rights <span style={{ color: 'var(--color-primary)' }}>in Islam</span></>
             )}
           </h1>
-          <p className="text-lg max-w-2xl mx-auto mb-8 animate-fade-up leading-relaxed" style={{ color: 'var(--color-text-soft)', animationDelay: '0.2s' }}>
+          <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 animate-fade-up leading-relaxed" style={{ color: 'var(--color-text-soft)', animationDelay: '0.2s' }}>
             {language === 'ur'
               ? 'عدل، مساوات، اور وقار کے اسلامی تصور کو دریافت کریں۔ قرآن اور مستند احادیث کی روشنی میں حقائق جاننا۔'
               : 'Discover the Islamic vision of justice, equality, and dignity. Learn the facts in the light of the Quran and authentic hadith.'}
           </p>
 
           {/* Quote */}
-          <div className="max-w-3xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <div className="relative rounded-2xl p-8 border" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
+          <div className="max-w-3xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="relative rounded-2xl p-8 sm:p-10 border shadow-lg" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
               <Quote className="absolute -top-4 left-6 w-8 h-8 p-1.5 rounded-full" style={{ background: 'var(--color-primary)', color: 'white' }} />
-              <p className="arabic-font text-2xl mb-4 leading-loose" style={{ color: 'var(--color-primary)' }} dir="rtl">
+              <p className="arabic-font text-2xl sm:text-3xl mb-5 leading-loose text-center" style={{ color: 'var(--color-primary)' }} dir="rtl">
                 {verse.arabic}
               </p>
-              <p className="text-base italic mb-2" style={{ color: 'var(--color-text)' }}>
+              <p className="text-base sm:text-lg italic mb-3 text-center" style={{ color: 'var(--color-text)' }}>
                 "{verse.translation}"
               </p>
-              <p className="text-sm font-semibold" style={{ color: 'var(--color-gold)' }}>
+              <p className="text-sm font-semibold text-center" style={{ color: 'var(--color-gold)' }}>
                 — {verse.reference}
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <button onClick={() => onNavigate('human-rights')} className="btn-primary">
-              {language === 'ur' ? 'حقائق دریافت کریں' : 'Explore Now'}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            <button onClick={() => onNavigate('human-rights')} className="btn-primary text-base px-8 py-4">
+              {language === 'ur' ? 'مزید جانیں' : 'Learn More'}
               <ArrowRight size={18} />
             </button>
-            <button onClick={onOpenChat} className="btn-outline">
+            <button onClick={onOpenChat} className="btn-outline text-base px-8 py-4">
               <Bot size={18} />
-              {language === 'ur' ? 'AI معاون سے بات کریں' : 'Ask AI Assistant'}
+              {language === 'ur' ? 'AI معاون سے پوچھیں' : 'Ask AI Assistant'}
             </button>
           </div>
         </div>

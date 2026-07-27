@@ -27,9 +27,23 @@ type SearchModalProps = {
 export default function SearchModal({ open, onClose, onNavigate }: SearchModalProps) {
   const { language } = useApp();
   const [query, setQuery] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const items: SearchItem[] = useMemo(() => {
     const all: SearchItem[] = [];
+    // Pages
+    const pages = [
+      { id: 'home', title: 'Home', titleUrdu: 'گھر', snippet: 'Introduction to human and women\u2019s rights in Islam.', snippetUrdu: 'اسلام میں انسانی اور خواتین حقوق کا تعارف۔', page: 'home' },
+      { id: 'human-rights', title: 'Human Rights', titleUrdu: 'انسانی حقوق', snippet: 'The right to life, justice, education, equality, freedom of religion, and dignity.', snippetUrdu: 'زندگی، انصاف، تعلیم، مساوات، مذہبی آزادی اور وقار کا حق۔', page: 'human-rights' },
+      { id: 'women-rights', title: "Women's Rights", titleUrdu: 'خواتین حقوق', snippet: 'Education, property, inheritance, marriage choice, respect, work, and financial security.', snippetUrdu: 'تعلیم، ملکیت، وراثت، شادی کا انتخاب، احترام، کام، مالی تحفظ۔', page: 'women-rights' },
+      { id: 'quran-hadith', title: 'Quran & Hadith', titleUrdu: 'قرآن و حدیث', snippet: 'Authentic Quran verses and Hadith on rights and justice.', snippetUrdu: 'حقوق اور انصاف پر مستند قرآنی آیات اور احادیث۔', page: 'quran-hadith' },
+      { id: 'myths-facts', title: 'Myths vs Facts', titleUrdu: 'خرافات و حقائق', snippet: 'Common misconceptions about Islam and the facts that correct them.', snippetUrdu: 'اسلام کے بارے میں عام غلط فہمیاں اور انہیں درست کرنے والے حقائق۔', page: 'myths-facts' },
+      { id: 'faqs', title: 'FAQs', titleUrdu: 'سوالات', snippet: 'Frequently asked questions about Islamic rights.', snippetUrdu: 'اسلامی حقوق کے بارے میں عام سوالات۔', page: 'faqs' },
+      { id: 'blog', title: 'Blog', titleUrdu: 'بلاگ', snippet: 'In-depth articles on Islamic rights and history.', snippetUrdu: 'اسلامی حقوق اور تاریخ پر گہرے مضامین۔', page: 'blog' },
+      { id: 'resources', title: 'Resources', titleUrdu: 'وسائل', snippet: 'Trusted websites, books, and organizations for further study.', snippetUrdu: 'مزید مطالعہ کے لیے قابل اعتماد ویب سائٹس، کتابیں، تنظیمیں۔', page: 'resources' },
+      { id: 'contact', title: 'Contact', titleUrdu: 'رابطہ', snippet: 'Get in touch with questions or suggestions.', snippetUrdu: 'سوالات یا تجاویز کے لیے ہم سے رابطہ کریں۔', page: 'contact' },
+    ];
+    pages.forEach((p) => all.push({ ...p, id: `page-${p.id}` }));
     humanRights.forEach((r) =>
       all.push({
         id: `hr-${r.id}`,
@@ -138,12 +152,27 @@ export default function SearchModal({ open, onClose, onNavigate }: SearchModalPr
   }, [open]);
 
   useEffect(() => {
+    setActiveIndex(0);
+  }, [query]);
+
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveIndex((i) => Math.min(i + 1, results.length - 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveIndex((i) => Math.max(i - 1, 0));
+      } else if (e.key === 'Enter' && results[activeIndex]) {
+        e.preventDefault();
+        onNavigate(results[activeIndex].page);
+        onClose();
+      }
     };
     if (open) window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open, onClose]);
+  }, [open, onClose, results, activeIndex]);
 
   if (!open) return null;
 
@@ -182,14 +211,18 @@ export default function SearchModal({ open, onClose, onNavigate }: SearchModalPr
             </div>
           ) : (
             <ul className="py-2">
-              {results.map((r) => (
+              {results.map((r, idx) => (
                 <li key={r.id}>
                   <button
                     onClick={() => {
                       onNavigate(r.page);
                       onClose();
                     }}
-                    className="w-full flex items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-black/5"
+                    onMouseEnter={() => setActiveIndex(idx)}
+                    className="w-full flex items-start gap-3 px-4 py-3 text-left transition-colors"
+                    style={{
+                      backgroundColor: idx === activeIndex ? 'rgba(46, 125, 50, 0.08)' : 'transparent',
+                    }}
                   >
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5"

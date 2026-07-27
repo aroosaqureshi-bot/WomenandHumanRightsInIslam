@@ -55,7 +55,7 @@ export default function Contact() {
     message: language === 'ur' ? 'پیغام' : 'Message',
     send: language === 'ur' ? 'پیغام بھیجیں' : 'Send Message',
     sending: language === 'ur' ? 'بھیجا جا رہا ہے...' : 'Sending...',
-    success: language === 'ur' ? 'شکریہ! آپ کا پیغام موصول ہو گیا۔' : 'Thank you! Your message has been received.',
+    success: language === 'ur' ? 'شکریہ! آپ کا پیغام کامیابی سے بھیج دیا گیا ہے۔' : 'Thank you! Your message has been sent successfully.',
     placeholder: {
       name: language === 'ur' ? 'آپ کا نام' : 'Your name',
       email: language === 'ur' ? 'آپ کا ای میل' : 'you@example.com',

@@ -14,6 +14,7 @@ import FAQs from '@/pages/FAQs';
 import Blog from '@/pages/Blog';
 import Resources from '@/pages/Resources';
 import Contact from '@/pages/Contact';
+import NotFound from '@/pages/NotFound';
 
 function AppContent() {
   const [page, setPage] = useState('home');
@@ -48,7 +49,8 @@ function AppContent() {
       case 'blog': return <Blog />;
       case 'resources': return <Resources />;
       case 'contact': return <Contact />;
-      default: return <Home onNavigate={navigate} onOpenChat={() => setChatOpen(true)} />;
+      case 'not-found': return <NotFound onNavigate={navigate} />;
+      default: return <NotFound onNavigate={navigate} />;
     }
   };
 

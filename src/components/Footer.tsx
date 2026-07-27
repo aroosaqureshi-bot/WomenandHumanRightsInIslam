@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Heart, Github, Globe, FileText, Shield } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 
 type FooterProps = {
@@ -23,6 +23,9 @@ const socials = [
   { Icon: Instagram, href: '#', label: 'Instagram' },
   { Icon: Youtube, href: '#', label: 'YouTube' },
 ];
+
+const GITHUB_URL = 'https://github.com/Aroosa';
+const VERCEL_URL = 'https://islamic-rights.vercel.app';
 
 export default function Footer({ onNavigate }: FooterProps) {
   const { language } = useApp();
@@ -112,7 +115,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter + Legal */}
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider" style={{ color: 'var(--color-text)' }}>
               {language === 'ur' ? 'روزانہ آیت' : 'Daily Verse'}
@@ -130,6 +133,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 type="email"
                 placeholder={language === 'ur' ? 'آپ کا ای میل' : 'Your email'}
                 className="input-field text-sm py-2.5"
+                aria-label={language === 'ur' ? 'ای میل' : 'Email'}
               />
               <button
                 type="submit"
@@ -138,6 +142,24 @@ export default function Footer({ onNavigate }: FooterProps) {
                 {language === 'ur' ? 'جمع کریں' : 'Join'}
               </button>
             </form>
+            <div className="mt-5 space-y-2">
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs transition-colors hover:underline" style={{ color: 'var(--color-text-soft)' }}>
+                <Github size={14} style={{ color: 'var(--color-primary)' }} />
+                {language === 'ur' ? 'گٹ ہب ریپوزٹری' : 'GitHub Repository'}
+              </a>
+              <a href={VERCEL_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs transition-colors hover:underline" style={{ color: 'var(--color-text-soft)' }}>
+                <Globe size={14} style={{ color: 'var(--color-primary)' }} />
+                {language === 'ur' ? 'ورسل ویب سائٹ' : 'Vercel Live Website'}
+              </a>
+              <button onClick={() => onNavigate('home')} className="flex items-center gap-2 text-xs transition-colors hover:underline" style={{ color: 'var(--color-text-soft)' }}>
+                <Shield size={14} style={{ color: 'var(--color-primary)' }} />
+                {language === 'ur' ? 'پرائیویسی پالیسی' : 'Privacy Policy'}
+              </button>
+              <button onClick={() => onNavigate('home')} className="flex items-center gap-2 text-xs transition-colors hover:underline" style={{ color: 'var(--color-text-soft)' }}>
+                <FileText size={14} style={{ color: 'var(--color-primary)' }} />
+                {language === 'ur' ? 'استعمال کی شرائط' : 'Terms of Use'}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -147,10 +169,13 @@ export default function Footer({ onNavigate }: FooterProps) {
         >
           <p>
             {language === 'ur'
-              ? '© 2025 اسلام میں حقوق۔ جملہ حقوق محفوظ ہیں۔'
-              : '© 2025 Rights in Islam. All rights reserved.'}
+              ? '© ۲۰۲۶ اسلام میں حقوق۔ جملہ حقوق محفوظ ہیں۔'
+              : '© 2026 Rights in Islam. All rights reserved.'}
           </p>
           <p className="flex items-center gap-1.5">
+            {language === 'ur' ? 'ڈویلپر:' : 'Developer:'}
+            <span className="font-semibold" style={{ color: 'var(--color-primary)' }}>Aroosa</span>
+            <span className="mx-1">•</span>
             {language === 'ur' ? 'محبت کے ساتھ بنایا گیا' : 'Made with'}
             <Heart size={12} fill="currentColor" style={{ color: 'var(--color-primary)' }} />
             {language === 'ur' ? ' کے ساتھ' : ' for education'}
