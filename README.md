@@ -30,7 +30,7 @@ Human & Women Rights in the Light of Islam is an educational website designed to
 
 
 ## 📂 GitHub Repository
-Add your GitHub repository link here.
+
 
 ## 📸 Screenshots
 ### Home Page
