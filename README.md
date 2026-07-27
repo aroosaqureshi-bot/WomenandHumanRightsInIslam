@@ -18,7 +18,7 @@ Human & Women Rights in the Light of Islam is an educational website designed to
 - Responsive Design
 
 ## 🛠️ Technologies Used
-- bolt
+- Bolt
 - React
 - Vite
 - TypeScript
