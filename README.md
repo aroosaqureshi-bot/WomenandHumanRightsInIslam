@@ -27,7 +27,7 @@ Human & Women Rights in the Light of Islam is an educational website designed to
 - Vercel
 
 ## 🚀 Live Demo
-
+https://women-and-human-rights-in-islam.vercel.app/
 
 ## 📂 GitHub Repository
 
