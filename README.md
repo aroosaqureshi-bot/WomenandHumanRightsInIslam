@@ -18,6 +18,7 @@ Human & Women Rights in the Light of Islam is an educational website designed to
 - Responsive Design
 
 ## 🛠️ Technologies Used
+- bolt
 - React
 - Vite
 - TypeScript
@@ -30,7 +31,7 @@ Human & Women Rights in the Light of Islam is an educational website designed to
 https://women-and-human-rights-in-islam.vercel.app/
 
 ## 📂 GitHub Repository
-
+https://github.com/aroosaqureshi-bot/WomenandHumanRightsInIslam
 
 ## 📸 Screenshots
 ### Home Page
