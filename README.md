@@ -1,3 +1,45 @@
-# HumanandWomenRightsInIslam
+# Human & Women Rights in the Light of Islam
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-vhchx4gl)
+## 📖 Overview
+Human & Women Rights in the Light of Islam is an educational website designed to spread awareness about the rights of human beings and women according to Islamic teachings. The platform provides authentic information in a simple and easy-to-understand way.
+
+## ✨ Features
+- Home Page
+- Human Rights Section
+- Women's Rights Section
+- Quran & Hadith References
+- AI Chat Assistant (Powered by Google Gemini)
+- Myths vs Facts
+- FAQ Section
+- Blog
+- Resources
+- Contact Form
+- Dark Mode
+- Responsive Design
+
+## 🛠️ Technologies Used
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Google Gemini API
+- GitHub
+- Vercel
+
+## 🚀 Live Demo
+Add your Vercel website link here.
+
+## 📂 GitHub Repository
+Add your GitHub repository link here.
+
+## 📸 Screenshots
+Screenshots are not included in this version.
+
+## 🎯 Purpose
+The purpose of this project is to educate users about Human Rights and Women's Rights in Islam through authentic Islamic teachings. It also provides an AI assistant to answer users' questions in a respectful and educational manner.
+
+## 👩‍💻 Developer
+**Aroosa**
+
+## 📄 License
+This project is created for educational purposes only.
