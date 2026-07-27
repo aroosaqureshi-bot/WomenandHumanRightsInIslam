@@ -33,7 +33,18 @@ Add your Vercel website link here.
 Add your GitHub repository link here.
 
 ## 📸 Screenshots
-Screenshots are not included in this version.
+### Home Page
+![Home Page]
+(Screenshot%20(187).png)
+### Women's Rights Page
+! [Women's Rights Page]
+(Screenshot%20(190).png)
+### Quiz Page
+! [Quiz Page]
+(Screenshot%20(191).png)
+### AI Assistant Page
+! [AI Assistant Page]
+(Screenshot%20(202).png)
 
 ## 🎯 Purpose
 The purpose of this project is to educate users about Human Rights and Women's Rights in Islam through authentic Islamic teachings. It also provides an AI assistant to answer users' questions in a respectful and educational manner.
