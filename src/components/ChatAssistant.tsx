@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Bot, X, Send, Sparkles } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { findAnswer } from '@/data/aiKnowledge';
+import { supabase } from '@/lib/supabase';
 
 type ChatMessage = {
   role: 'user' | 'ai';
@@ -62,14 +63,29 @@ export default function ChatAssistant({ open, onClose }: ChatAssistantProps) {
     };
   }, [open]);
 
-  const send = (text: string) => {
+  const send = async (text: string) => {
     const q = text.trim();
     if (!q) return;
     const userMsg: ChatMessage = { role: 'user', text: q };
     setMessages((m) => [...m, userMsg]);
     setInput('');
     setTyping(true);
-    setTimeout(() => {
+
+    try {
+      const { data, error } = await supabase.functions.invoke('islamic-rights-ai', {
+        body: { message: q, language },
+      });
+
+      if (error || !data || !data.answer) throw new Error('edge function failed');
+
+      const aiMsg: ChatMessage = {
+        role: 'ai',
+        text: data.answer,
+        references: data.references || [],
+      };
+      setMessages((m) => [...m, aiMsg]);
+    } catch {
+      // Fallback to local knowledge base if the edge function is unavailable
       const entry = findAnswer(q);
       const aiMsg: ChatMessage = entry
         ? {
@@ -85,8 +101,9 @@ export default function ChatAssistant({ open, onClose }: ChatAssistantProps) {
                 : 'I\u2019m sorry, I don\u2019t have an answer for that question. Please try asking about specific topics like women\u2019s rights, human rights, justice, education, inheritance, or marriage.',
           };
       setMessages((m) => [...m, aiMsg]);
+    } finally {
       setTyping(false);
-    }, 700);
+    }
   };
 
   if (!open) return null;
