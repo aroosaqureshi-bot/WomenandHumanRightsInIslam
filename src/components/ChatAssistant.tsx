@@ -72,6 +72,8 @@ export default function ChatAssistant({ open, onClose }: ChatAssistantProps) {
     setTyping(true);
 
     try {
+      if (!supabase) throw new Error('Supabase not configured');
+
       const { data, error } = await supabase.functions.invoke('islamic-rights-ai', {
         body: { message: q, language },
       });

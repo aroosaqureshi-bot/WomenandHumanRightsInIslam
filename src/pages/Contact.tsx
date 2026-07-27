@@ -27,6 +27,7 @@ export default function Contact() {
     setStatus('loading');
     setError('');
     try {
+      if (!supabase) throw new Error('Database not configured');
       const { error: insertError } = await supabase.from('contact_messages').insert({
         name: form.name,
         email: form.email,
